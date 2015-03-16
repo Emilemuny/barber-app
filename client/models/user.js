@@ -1,23 +1,14 @@
 'use strict';
 
 angular.module('angular-prototype')
-  .factory('User', ['$http', function($http){
+  .factory('User', ['$rootScope', '$http', function($rootScope,$http){
 
-    function register(user){
-      return $http.post('/register', user);
+    function register(userId, user){
+      return $http.post(`/users/${userId}`, user);
     }
-
-    function login(user){
-      return $http.post('/login', user);
-    }
-
-    function status(){
-      return $http.get('/status');
-    }
-
     function logout(){
       return $http.delete('/logout');
     }
 
-    return {register:register, login:login, status:status, logout:logout};
+    return {register:register, logout:logout};
   }]);

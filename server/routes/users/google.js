@@ -5,8 +5,8 @@ let User = require('../../models/user');
 module.exports = {
   auth: false,
   handler: function(request, reply){
-    User.twitter(request.payload, profile=>{
-      User.create( 'twitter', profile, (err, user)=>{
+    User.google(request.payload, profile=>{
+      User.create('google', profile, (err, user)=>{
         if(err){reply().code(400);}
 
         let token = user.token();

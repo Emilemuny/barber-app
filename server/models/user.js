@@ -10,7 +10,7 @@ let moment = require('moment');
 let User;
 
 let userSchema = mongoose.Schema({
-    displyName: String,
+    displayName: String,
     photoUrl: String,
     email: String,
     phone: String,
@@ -19,7 +19,7 @@ let userSchema = mongoose.Schema({
     google: String,
     facebook: String,
     twitter: String,
-    instragram: String,
+    instagram: String,
     createdAt: {type: Date, default: Date.now, required: true}
 });
 
@@ -27,8 +27,8 @@ userSchema.statics.preTwitter = function(cb){
   let requestTokenUrl = 'https://api.twitter.com/oauth/request_token';
   let authenticateUrl = 'https://api.twitter.com/oauth/authenticate';
   let requestTokenOauth = {
-    consumer_key: process.env.TWITTER_KEY,
-    consumer_secret: process.env.TWITTER_SECRET,
+    consumer_key: process.env.TWITTER_CONSUMER_KEY,
+    consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
     callback: 'http://127.0.0.1:/3333/auth/twitter'
   };
 
@@ -42,13 +42,15 @@ userSchema.statics.preTwitter = function(cb){
 userSchema.statics.twitter = function(query, cb){
   let accessTokenUrl = 'https://api.twitter.com/oauth/access_token';
   let accessTokenOauth = {
-    consumer_key: process.env.TWITTER_KEY,
-    consumer_secret: process.env.TWITTER_SECRET,
+    consumer_key: process.env.TWITTER_CONSUMER_KEY,
+    consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
     token: query.oauth_token,
     verifier: query.oauth_verifier
+
   };
 
     Request.post({url:accessTokenUrl, oauth:accessTokenOauth}, (err, response, profile)=>{
+      console.log('***TOKEN', accessTokenOauth);
       profile = qs.parse(profile);
       cb({twitter:profile.user_id, displayName:profile.screen_name});
     });
@@ -59,7 +61,7 @@ userSchema.statics.github = function(payload, cb){
   let userApiUrl = 'https://api.github.com/user';
   let params = {
     code: payload.code,
-    client_id: payload.client.Id,
+    client_id: payload.clientId,
     redirect_uri: payload.redirectUri,
     client_secret: process.env.GITHUB_SECRET
   };
@@ -71,6 +73,61 @@ userSchema.statics.github = function(payload, cb){
         cb({github:profile.id, displayName:profile.name, photoUrl:profile.avatar_url});
       });
     });
+};
+
+userSchema.statics.facebook = function(payload, cb) {
+  let accessTokenUrl = 'https://graph.facebook.com/oauth/access_token';
+  let graphApiUrl = 'https://graph.facebook.com/me';
+  let params = {
+    code: payload.code,
+    client_id: payload.clientId,
+    redirect_uri: payload.redirectUri,
+    client_secret: process.env.FB_SECRET
+  };
+  Request.get({url: accessTokenUrl, qs: params, json: true}, (err, response, accessToken) => {
+    accessToken = qs.parse(accessToken);
+    Request.get({url: graphApiUrl, qs:accessToken, json:true}, (err, response, profile) => {
+      let photoUrl = 'https://graph.facebook.com/' + profile.id + '/picture?type=large';
+      console.log('**FacbookINFO', profile);
+      cb({facebook:profile.id, displayName:profile.name, photoUrl:[photoUrl]});
+    });
+  });
+};
+
+userSchema.statics.instagram = function(payload, cb){
+  let accessTokenUrl = 'https://api.instagram.com/oauth/access_token';
+  let params = {
+    code: payload.code,
+    client_id: payload.clientId,
+    redirect_uri: 'http://localhost:3333',
+    client_secret: process.env.INSTAGRAM_SECRET,
+    grant_type: 'authorization_code'
+  };
+
+  Request.post(accessTokenUrl, {json: true, form: params}, (err,response, body)=>{
+    console.log('instaProfiledata***', body.user);
+    cb({instagram:body.user.id, displayName:body.user.username, photoUrl: body.user.profile_picture});
+  });
+};
+
+userSchema.statics.google = function(payload, cb) {
+  let accessTokenUrl = 'https://accounts.google.com/o/oauth2/token';
+  let userApiUrl = 'https://www.googleapis.com/plus/v1/people/me/openIdConnect';
+  let params = {
+    code: payload.code,
+    client_id: payload.clientId,
+    redirect_uri: 'http://localhost:3333',
+    client_secret: process.env.GOOGLE_SECRET,
+    grant_type: 'authorization_code'
+  };
+  Request.post(accessTokenUrl, { json: true, form: params }, (err, response, token) => {
+    let accessToken = token.access_token;
+    let headers = { Authorization: 'Bearer ' + accessToken };
+    Request.get({url:userApiUrl, headers:headers, json:true}, (err, response, profile) => {
+      console.log('**GOOGLEinfo', profile);
+      cb({google:profile.sub, displayName:profile.name, photoUrl: profile.picture});
+    });
+  });
 };
 
 userSchema.statics.create = function(provider, profile, cb){

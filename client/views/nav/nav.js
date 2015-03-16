@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('angular-prototype')
-  .controller('NavCtrl', ['$rootScope', '$scope', 'User', function($rootScope, $scope, User){
+  .controller('NavCtrl', ['$rootScope', '$scope', '$state', '$window', function($rootScope, $scope, $state, $window){
     $scope.logout = function(){
-      User.logout().then(function(){
-        delete $rootScope.email;
-      });
+     delete $rootScope.user;
+     $window.localStorage.clear();
+     $state.go('home');
     };
   }]);
