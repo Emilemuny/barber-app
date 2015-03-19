@@ -9,6 +9,11 @@ html(lang='en', ng-app='angular-prototype')
     link(rel='stylesheet', href='/vendor/font-awesome/css/font-awesome.min.css')
     link(rel='stylesheet', href='/index.css')
     link(rel='shortcut icon', href='/favicon.ico')
+    
+    script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places')
+    script(type='text/javascript', href='views/general/home.js')
+    
+      
       
     //if lt IE 9
       script(src='https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')       
@@ -20,7 +25,7 @@ html(lang='en', ng-app='angular-prototype')
       .row
         .col-xs-12
           div(ui-view)
-
+  
     script(src='/vendor/jquery/dist/jquery.js')
     script(src='/vendor/angular/angular.js')
     script(src='/vendor/angular-messages/angular-messages.js')
