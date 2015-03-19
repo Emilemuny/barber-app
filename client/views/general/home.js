@@ -1,3 +1,5 @@
+/* jshint camelcase: false */
+
 'use strict';
 
 var map;
@@ -63,9 +65,12 @@ function createMarker(place) {
         alert(status);
         return;
       }
+      console.log('Result Location**',result.address_components[2].long_name);
+      var LoCation = result.address_components[2].long_name;
 
-      angular.element('[ng-app]').injector().get('Yelp').review(result.name, 'fremont');
-    console.log('Result Location**',result.location);
+    angular.element('[ng-app]').injector().get('Yelp').review(result.name, LoCation);
+  //  console.log('Result LONGNAME', result.address_components);
+
     console.log('Result Biz Name**',result.name);
       infoWindow.setContent(result.name);
       infoWindow.open(map, marker);
