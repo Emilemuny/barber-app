@@ -63,6 +63,10 @@ function createMarker(place) {
         alert(status);
         return;
       }
+
+      angular.element('[ng-app]').injector().get('Yelp').review(result.name, 'fremont');
+    console.log('Result Location**',result.location);
+    console.log('Result Biz Name**',result.name);
       infoWindow.setContent(result.name);
       infoWindow.open(map, marker);
     });
