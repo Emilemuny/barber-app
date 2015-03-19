@@ -1,52 +1,71 @@
 'use strict';
 
 var map;
+var infoWindow;
 var service;
-var infowindow;
 
-function initialize(){
-
-  var fremont = new google.maps.LatLng(37.5483333, -121.9875);
+function initialize() {
 
   map = new google.maps.Map(document.getElementById('map_canvas'), {
-    center: fremont,
-    zoom: 15
-
+    center: new google.maps.LatLng(37.5483333, -121.9875),
+    zoom: 12,
+    styles: [
+      {
+        stylers: [
+          { visibility: 'simplified' }
+        ]
+      },
+      {
+        elementType: 'labels',
+        stylers: [
+          { visibility: 'on' }
+        ]
+      }
+    ]
   });
 
-  var request = {
-    location: fremont,
-    radius: '500',
-    types: ['store']
-  };
+  infoWindow = new google.maps.InfoWindow();
+  service = new google.maps.places.PlacesService(map);
 
-  service= new google.maps.places.PlacesService(map);
-  service.nearbySearch(request, callback);
+  google.maps.event.addListenerOnce(map, 'bounds_changed', performSearch);
+}
+
+function performSearch() {
+  var request = {
+    bounds: map.getBounds(),
+    radius: '500',
+    keyword: 'barbershop'
+  };
+  service.radarSearch(request, callback);
 }
 
 function callback(results, status) {
-  if(status === google.maps.places.PlacesServiceStatus.OK){
-    for(var i = 0; i < results.length; i++){
-      var place = results[i];
-
-      createMarker(results[i]);
-    }
-    console.log('Results', results[0]);
+  if (status !== google.maps.places.PlacesServiceStatus.OK) {
+    alert(status);
+    return;
+  }
+  for (var i = 0, result; result = results[i]; i++) {
+    createMarker(result);
   }
 }
 
-
-
 function createMarker(place) {
-  var placeLoc = place.geometry.location;
+  var barberIcon = 'http://i.picresize.com/images/2015/03/19/';
   var marker = new google.maps.Marker({
     map: map,
-    position: place.geometry.location
+    position: place.geometry.location,
+    icon: barberIcon + 'XpAY0.png'
   });
 
-  google.maps.event.addListener(marker, 'click', function(){
-    infowindow.setContent(place.name);
-    infowindow.open(map, this);
+  google.maps.event.addListener(marker, 'click', function() {
+    service.getDetails(place, function(result, status) {
+      if (status !== google.maps.places.PlacesServiceStatus.OK) {
+        alert(status);
+        return;
+      }
+      infoWindow.setContent(result.name);
+      infoWindow.open(map, marker);
+    });
   });
 }
 
