@@ -2,6 +2,9 @@
 
 'use strict';
 
+angular.module('angular-prototype')
+  .controller('HomeCtrl', ['$scope', function($scope){
+
 var map;
 var infoWindow;
 var service;
@@ -71,6 +74,9 @@ function createMarker(place) {
     angular.element('[ng-app]').injector().get('Yelp').review(result.name, LoCation);
   //  console.log('Result LONGNAME', result.address_components);
 
+     //adding result name in the scope for now..
+     $scope.result = result;
+
     console.log('Result Biz Name**',result.name);
       infoWindow.setContent(result.name);
       infoWindow.open(map, marker);
@@ -79,3 +85,5 @@ function createMarker(place) {
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
+
+}]);

@@ -9,9 +9,12 @@ html(lang='en', ng-app='angular-prototype')
     link(rel='stylesheet', href='/vendor/font-awesome/css/font-awesome.min.css')
     link(rel='stylesheet', href='/index.css')
     link(rel='shortcut icon', href='/favicon.ico')
-    
     script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places')
-    script(type='text/javascript', href='views/general/home.js')
+    script(type='text/javascript', src='views/general/home.js')
+    
+    
+    
+    
     
       
       
@@ -26,6 +29,7 @@ html(lang='en', ng-app='angular-prototype')
         .col-xs-12
           div(ui-view)
   
+    
     script(src='/vendor/jquery/dist/jquery.js')
     script(src='/vendor/angular/angular.js')
     script(src='/vendor/angular-messages/angular-messages.js')
@@ -34,5 +38,6 @@ html(lang='en', ng-app='angular-prototype')
     script(src='/vendor/moment/moment.js')
     script(src='/vendor/bootstrap/dist/js/bootstrap.min.js')
     script(src='/vendor/satellizer/satellizer.js')
+    
 
     script(src='/index.js')
