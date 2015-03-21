@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angular-prototype')
+angular.module('barber-book')
   .factory('User', ['$rootScope', '$http', function($rootScope,$http){
 
     function register(userId, user){

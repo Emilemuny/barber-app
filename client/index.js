@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angular-prototype', ['ui.router', 'ngMessages', 'satellizer'])
+angular.module('barber-book', ['ui.router', 'ngMessages', 'satellizer'])
   .config(['$stateProvider', '$urlRouterProvider', '$authProvider', function($stateProvider, $urlRouterProvider, $authProvider){
     $urlRouterProvider.otherwise('/');
 

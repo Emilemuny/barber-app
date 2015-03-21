@@ -2,7 +2,7 @@
 
 'use strict';
 
-angular.module('angular-prototype')
+angular.module('barber-book')
   .controller('HomeCtrl', ['$scope', function($scope){
 
 var map;

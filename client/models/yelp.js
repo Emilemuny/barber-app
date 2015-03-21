@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angular-prototype')
+angular.module('barber-book')
   .factory('Yelp', ['$http', function($http){
 
     function review(business, location){

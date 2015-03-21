@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angular-prototype')
+angular.module('barber-book')
 .controller('UsersCtrl', ['$rootScope', '$scope', '$state', '$auth', '$window', function($rootScope, $scope, $state, $auth, $window){
   $scope.name = _.capitalize($state.current.name);
 

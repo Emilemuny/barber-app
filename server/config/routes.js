@@ -3,6 +3,9 @@
 module.exports = [
   {method: 'get', path: '/{param*}', config: require('../routes/general/static')},
 
+  {method: 'post', path: '/auth/register', config: require('../routes/business/register')},
+  {method: 'post', path: '/auth/login', config: require('../routes/business/login')},
+  {method: 'delete', path: '/auth/logout', config: require('../routes/business/logout')},
 
   {method: 'get', path: '/auth/twitter', config: require('../routes/users/twitter')},
   {method: 'post', path: '/auth/github', config: require('../routes/users/github')},
@@ -13,4 +16,6 @@ module.exports = [
   {method: 'delete', path: '/logout', config: require('../routes/users/logout')},
 
   {method: 'get', path: '/yelp', config: require('../routes/yelp/getreviews')}
+
+
 ];
