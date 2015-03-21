@@ -1,12 +1,25 @@
-h1 home
+.container-slide
+    #map-barbers
+      .row        
+        .panel
+          .col-md-6
+            #map_canvas
+          .col-md-6 
+          .row
+            .col-sm-6.col-md-4
+              .thumbnail
+                .caption(ng-show='result')
+                  h3 {{result.name}}
+                  p Address: {{result.formatted_address}}
+                  p Phone: {{result.formatted_phone_number}}                  
+                  a.btn.btn-primary(href='#', role='button') Book
+                  a.btn.btn-default(href='#', role='button') More info.
 
-{{result.name}}
-
-#map_canvas
-  
-  
-  
-  
-
-  
-  
+                       
+      .row
+        .col-lg-8.col-md-8
+          h3 Book your next haircut appointment right here  
+        .col-lg-4.col-md-4
+          a.btn.btn-lg.btn-primary.pull-right(href='#')
+            i.fa.fa-power-off
+            | Register your business!  

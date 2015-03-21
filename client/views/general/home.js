@@ -94,7 +94,7 @@ function createMarker(place) {
      //adding result name in the scope for now..
      $scope.result = result;
 
-    console.log('Result Biz Name**',result.name);
+    console.log('Result Biz Name**',result);
       infoWindow.setContent(result.name);
       infoWindow.open(map, marker);
     });
