@@ -2,16 +2,13 @@
 
 angular.module('barber-book', ['ui.router', 'ngMessages', 'satellizer'])
   .config(['$stateProvider', '$urlRouterProvider', '$authProvider', function($stateProvider, $urlRouterProvider, $authProvider){
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/authenticate');
 
     $stateProvider
-      .state('authenticate', {url:'/', templateUrl:'/views/general/authenticate.html', controller:'OauthCtrl'})
+      .state('authenticate', {url:'/authenticate', templateUrl:'/views/general/authenticate.html', controller:'OauthCtrl'})
       .state('home', {url:'/home', templateUrl:'/views/general/home_user.html', controller: 'HomeCtrl'})
       .state('faq', {url:'/faq', templateUrl:'/views/general/faq.html'})
       .state('contact', {url:'/contact', templateUrl:'/views/general/contact.html'})
-
-      .state('register', {url:'/register', templateUrl:'/views/users/users.html', controller:'UsersCtrl'})
-      .state('login', {url:'/login', templateUrl:'/views/users/users.html', controller:'UsersCtrl'});
 
       $authProvider.github({clientId: '0f2f449e07affa7ca822'});
       $authProvider.facebook({clientId: '1418892481739742'});

@@ -5,16 +5,23 @@
       #social.button(type='submit', ng-click='authenticate("github")'): i.fa.fa-github
       #social.button(type='submit', ng-click='authenticate("instagram")'): i.fa.fa-instagram        
 
-      #mainlogin
-        #or or
-        h1 Log in with awesome new thing
-        form(action='#')
-          input(type='text', placeholder='username or email', value='', required='')
-          input(type='password', placeholder='password', value='', required='')
-          button(type='submit')
-            i.fa.fa-arrow-right
-        #note
-          a(href='#') 
+  #mainlogin
+    #or Barber
+    h1 Login to your portal
+    
+    a.au(ui-sref='login') Login 
+    a.au(ui-sref='register') Register
+    form(action='#')
+      input(type='text', placeholder='username or email', value='', required='')
+      input(type='password', placeholder='password', value='', required='')
+      a Don't have an account, click here to register!
+      input(type='password', placeholder='password', value='', required='')
+      input(type='password', placeholder='confirm your password', value='', required='')
+      
+      button(type='submit')
+        i.fa.fa-arrow-right
+    #note
+      a(href='#') 
 
 
-        
+      

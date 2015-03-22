@@ -17,5 +17,4 @@ module.exports = [
 
   {method: 'put', path: '/business/{businessId}',config: require('../routes/business/updateprofile')}
 
-
 ];
