@@ -5,7 +5,8 @@ angular.module('barber-book', ['ui.router', 'ngMessages', 'satellizer'])
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
-      .state('home', {url:'/', templateUrl:'/views/general/home.html', controller: 'HomeCtrl'})
+      .state('authenticate', {url:'/', templateUrl:'/views/general/authenticate.html', controller:'OauthCtrl'})
+      .state('home', {url:'/home', templateUrl:'/views/general/home_user.html', controller: 'HomeCtrl'})
       .state('faq', {url:'/faq', templateUrl:'/views/general/faq.html'})
       .state('contact', {url:'/contact', templateUrl:'/views/general/contact.html'})
 
@@ -14,7 +15,7 @@ angular.module('barber-book', ['ui.router', 'ngMessages', 'satellizer'])
 
       $authProvider.github({clientId: '0f2f449e07affa7ca822'});
       $authProvider.facebook({clientId: '1418892481739742'});
-      $authProvider.google({clientId: '762244371848-ttjag02m7npn6331djjp991t19dcgk81@developer.gserviceaccount.com'});
+      $authProvider.google({clientId: '163158498926-liap9036t6hqercc1jj4k679eicgnn13.apps.googleusercontent.com'});
       $authProvider.twitter({url: '/auth/twitter'});
       $authProvider.oauth2({
           name: 'instagram',

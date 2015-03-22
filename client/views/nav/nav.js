@@ -5,6 +5,6 @@ angular.module('barber-book')
     $scope.logout = function(){
      delete $rootScope.user;
      $window.localStorage.clear();
-     $state.go('home');
+     $state.go('/');
     };
   }]);

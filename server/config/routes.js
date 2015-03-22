@@ -13,9 +13,9 @@ module.exports = [
   {method: 'post', path: '/auth/instagram', config: require('../routes/users/instagram')},
   {method: 'post', path: '/auth/google', config: require('../routes/users/google')},
 
-  {method: 'delete', path: '/logout', config: require('../routes/users/logout')},
+  {method: 'get', path: '/yelp', config: require('../routes/yelp/getreviews')},
 
-  {method: 'get', path: '/yelp', config: require('../routes/yelp/getreviews')}
+  {method: 'put', path: '/business/{businessId}',config: require('../routes/business/updateprofile')}
 
 
 ];

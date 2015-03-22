@@ -9,8 +9,6 @@ var map;
 var infoWindow;
 var service;
 
-
-
 function initialize() {
   if(navigator.geolocation){
     navigator.geolocation.getCurrentPosition(success);
