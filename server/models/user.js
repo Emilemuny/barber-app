@@ -29,7 +29,7 @@ userSchema.statics.preTwitter = function(cb){
   let requestTokenOauth = {
     consumer_key: process.env.TWITTER_CONSUMER_KEY,
     consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-    callback: 'http://127.0.0.1:/3333/auth/twitter'
+    callback: 'http://localhost:3333',
   };
 
     Request.post({url: requestTokenUrl, oauth:requestTokenOauth}, (err, response, body)=>{
@@ -46,7 +46,6 @@ userSchema.statics.twitter = function(query, cb){
     consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
     token: query.oauth_token,
     verifier: query.oauth_verifier
-
   };
 
     Request.post({url:accessTokenUrl, oauth:accessTokenOauth}, (err, response, profile)=>{
@@ -82,14 +81,14 @@ userSchema.statics.facebook = function(payload, cb) {
     code: payload.code,
     client_id: payload.clientId,
     redirect_uri: payload.redirectUri,
-    client_secret: process.env.FB_SECRET
+    client_secret: process.env.FACEBOOK_SECRET
   };
   Request.get({url: accessTokenUrl, qs: params, json: true}, (err, response, accessToken) => {
     accessToken = qs.parse(accessToken);
     Request.get({url: graphApiUrl, qs:accessToken, json:true}, (err, response, profile) => {
       let photoUrl = 'https://graph.facebook.com/' + profile.id + '/picture?type=large';
       console.log('**FacbookINFO', profile);
-      cb({facebook:profile.id, displayName:profile.name, photoUrl:[photoUrl]});
+      cb({facebook:profile.id, displayName:profile.name, photoUrl:[photoUrl], email:profile.email});
     });
   });
 };

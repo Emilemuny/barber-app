@@ -3,6 +3,8 @@
 angular.module('barber-book')
 .controller('OauthCtrl', ['$rootScope', '$scope', '$state', '$auth', '$window', function($rootScope, $scope, $state, $auth, $window){
   $scope.name = _.capitalize($state.current.name);
+ console.log('currentName', $state.current.name);
+ console.log('name', $scope.name);
 
   function login(response){
     $window.localStorage.user = JSON.stringify(response.data.user);

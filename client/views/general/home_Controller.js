@@ -3,7 +3,9 @@
 'use strict';
 
 angular.module('barber-book')
-  .controller('HomeCtrl', ['$scope', function($scope){
+  .controller('HomeCtrl', ['$rootScope', '$scope', '$state', function($rootScope, $scope, $state){
+
+if(!$rootScope.user){ $state.go('authenticate');}
 
 var map;
 var infoWindow;
