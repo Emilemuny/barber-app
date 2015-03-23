@@ -12,7 +12,10 @@ angular.module('barber-book', ['ui.router', 'ngMessages', 'satellizer'])
 
       .state('home', {url:'/home', templateUrl:'/views/general/home_user.html', controller: 'HomeCtrl'})
       .state('faq', {url:'/faq', templateUrl:'/views/general/faq.html'})
-      .state('contact', {url:'/contact', templateUrl:'/views/general/contact.html'});
+      .state('contact', {url:'/contact', templateUrl:'/views/general/contact.html'})
+
+      .state('homebiz',{url:'/business', templateUrl:'/views/business/homebiz.html', controller: 'HomeBizCtrl'})
+      .state('update', {url:'/business', templateUrl:'/views/business/homebiz.html', controller: 'HomeBizCtrl'});
 
 
       $authProvider.github({clientId: '0f2f449e07affa7ca822'});
@@ -34,6 +37,8 @@ angular.module('barber-book', ['ui.router', 'ngMessages', 'satellizer'])
   .run(['$rootScope', '$window', '$auth', function($rootScope, $window, $auth){
     if($auth.isAuthenticated()){
       $rootScope.user = JSON.parse($window.localStorage.user);
-    //  $rootScope.business = JSON.parse($window.localStorage.business);
+
     }
+
+    $rootScope.business = JSON.parse($window.localStorage.business);
    }]);

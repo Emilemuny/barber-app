@@ -35,9 +35,10 @@ angular.module('barber-book')
       Business.login(business).then(function(response) {
         $scope.alertMessage = '';
         $rootScope.name = response.data.name;
-        $window.localStorage.business = JSON.stringify(response.data.business)
+        $window.localStorage.business = JSON.stringify(response.data.business);
         $rootScope.business = response.data.business;
-        $state.go('home');
+        console.log('Business email',$rootScope.business);
+        $state.go('homebiz');
       }, function() {
         $scope.alertMessage = 'Incorrect email/password';
         business.email = business.password1 = business.password2 = business.password = '';

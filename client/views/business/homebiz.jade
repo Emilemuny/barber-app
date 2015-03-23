@@ -1,0 +1,35 @@
+.container-slide
+    #map-barbers
+      .row        
+        .panel
+          .col-md-6
+            #map_canvas
+          .col-md-6 
+          .row
+            .col-sm-6.col-md-4
+              .thumbnail
+                .caption(ng-show='result', ng-init="show=0")
+                  h3 Business name: {{result.name}}
+                  p Address: {{result.formatted_address}}
+                  p Phone: {{result.formatted_phone_number}} 
+                  p Email: {{business.email}}             
+                  a.btn.btn-lg.btn-primary(ng-click="show=1")
+                    i.fa.fa-power-off
+                    | Register your business! 
+                  span(ng-show="show == 1")  
+                    label(for='pin') Enter the pin received via text message below to successfully register!!  
+                    input.pin(type='number', name='pin', placeholder='Enter your confirmation PIN', ng-model='business.pin', required) 
+                    button.pin(type='submit', ng-click='UpdateAccount(business)') Submit
+                      i.fa.fa-arrow-right  
+                  
+    
+    
+      .row
+        .col-lg-8.col-md-8
+          h3 Book your next haircut appointment right here  
+        .col-lg-4.col-md-4
+          a.btn.btn-lg.btn-primary.pull-right(href='#')
+            i.fa.fa-power-off
+            | Register your business!  
+            
+                  
