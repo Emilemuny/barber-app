@@ -1,4 +1,4 @@
-{{name}}
+
 
 #loginform
       #social.button(ng-click='authenticate("facebook")'): i.fa.fa-facebook
@@ -14,33 +14,19 @@
     a.au(ui-sref='login') Login 
     a.au(ui-sref='register') Register
     form      
-      input(type='text', placeholder='username or email', value='', required='')
-      input(type='password', placeholder='password', value='', required='')      
-    .form-group(ng-show='name === "Register"')  
-      input(type='password', placeholder='password', value='', required='')
-      input(type='password', placeholder='confirm your password', value='', required='')      
-      button(type='submit', ng-click='submit(business)') {{name}}
-        i.fa.fa-arrow-right
-    .form-group(ng-show='name === "Login"')  
-      button(type='submit', ng-click='submit(business)') {{name}}
-        i.fa.fa-arrow-right    
-    #note
-      a(href='#') 
-
-
-      
-      //- .form-group
-      //-         label(for='email') Email
-      //-         input#email.form-control(type='email', name='email', autofocus=true, ng-model='user.email')
-      //-       .form-group(ng-show='name === "Register"')
-      //-         label(for='password1') Password
-      //-         input#password1.form-control(type='password', name='password1', ng-model='user.password1')
-      //-       .form-group(ng-show='name === "Register"')
-      //-         label(for='password2') Confirm Password
-      //-         input#password2.form-control(type='password', name='password2', ng-model='user.password2')
-      //-       .form-group(ng-show='name === "Login"')
-      //-         label(for='password1') Password
-      //-         input#password1.form-control(type='password', name='password', ng-model='user.password')
-      //-       .form-group
-      //-         button.btn.btn-default(type='submit', ng-click='submit(user)') {{name}}
-      //-       .form-group(ng-show='name === "Login"')
+      .form-group
+        input(type='email', name='email', placeholder='email', required='', ng-model='business.email')
+      .form-group(ng-show='name === "Register"')  
+        input(type='password', name='password1', placeholder='password', required='', ng-model='business.password1')      
+      .form-group(ng-show='name === "Register"')  
+        input(type='password', name='password2', placeholder='confirm your password', ng-model='business.password2')      
+      .form-group(ng-show='name === "Login"')
+        input(type='password', name='password', ng-model='business.password')  
+      .form-group(ng-show='name === "Register"')  
+        button(type='submit', ng-click='submit(business)') {{name}}
+          i.fa.fa-arrow-right
+      .form-group(ng-show='name === "Login"')  
+        button(type='submit', ng-click='submit(business)') {{name}}
+          i.fa.fa-arrow-right    
+  
+  

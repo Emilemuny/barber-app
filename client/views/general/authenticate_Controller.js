@@ -7,7 +7,7 @@ angular.module('barber-book')
  console.log('name', $scope.name);
 
   function login(response){
-    $window.localStorage.user = JSON.stringify(response.data.user);
+    $window.localStorage.business = JSON.stringify(response.data.user);
     $rootScope.user = response.data.user;
     $state.go('home');
   }
@@ -17,17 +17,17 @@ angular.module('barber-book')
     .then(login);
   };
 
-  $scope.submit = function(user){
-    if($scope.name === 'Register'){
-      if((user.password1 === user.password2) && (user.email)){
-        $auth.signup({email:user.email, password: user.password1})
-        .then(login);
+  $scope.submit = function(business){
+      if($scope.name === 'Register'){
+        if((business.password1 === business.password2) && (business.email)){
+          $auth.register({email:business.email, password:business.password1})
+          .then(login);
+        }else{
+          business.password1 = business.password2 = '';
+        }
       }else{
-        user.password1 = user.password2 = '';
+        $auth.login({email:business.email, password:business.password})
+        .then(login);
       }
-    }else{
-      $auth.login({email:user.email, password:user.password})
-      .then(login);
-    }
-  };
+    };
 }]);

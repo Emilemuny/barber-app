@@ -7,10 +7,7 @@ nav.navbar.navbar-default(ng-controller='NavCtrl', ng-hide='!user')
         span.icon-bar
         span.icon-bar
       a.navbar-brand(ui-sref='home') Barber-book
-    #navbar.collapse.navbar-collapse
-      ul.nav.navbar-nav.navbar-right(ng-hide='user')
-        li: a(ui-sref='register'): i.fa.fa-user-plus &nbsp; Register
-        li: a(ui-sref='login'): i.fa.fa-key &nbsp; Login
+    #navbar.collapse.navbar-collapse      
       ul.nav.navbar-nav.navbar-right(ng-show='user')
         li: a(ui-sref='authenticate', ng-click='logout()') {{user.displayName || user.email}}
       ul.nav.navbar-nav.navbar-right

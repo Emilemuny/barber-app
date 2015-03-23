@@ -5,7 +5,7 @@
 angular.module('barber-book')
   .controller('HomeCtrl', ['$rootScope', '$scope', '$state', function($rootScope, $scope, $state){
 
-if(!$rootScope.user){ $state.go('authenticate');}
+if(!$rootScope.user || !$rootScope.business){ $state.go('authenticate');}
 
 var map;
 var infoWindow;
