@@ -1,4 +1,4 @@
-nav.navbar.navbar-default(ng-controller='NavCtrl', ng-hide='!user')
+nav.navbar.navbar-default
   .container-fluid
     .navbar-header
       button.navbar-toggle.collapsed(data-toggle="collapse", data-target="#navbar")
@@ -8,8 +8,8 @@ nav.navbar.navbar-default(ng-controller='NavCtrl', ng-hide='!user')
         span.icon-bar
       a.navbar-brand(ui-sref='home') Barber-book
     #navbar.collapse.navbar-collapse      
-      ul.nav.navbar-nav.navbar-right(ng-show='user')
-        li: a(ui-sref='authenticate', ng-click='logout()') {{user.displayName || user.email}}
+      ul.nav.navbar-nav.navbar-right
+        li: a(ui-sref='authenticate'): i.fa.fa-signin &nbsp; Login
       ul.nav.navbar-nav.navbar-right
         li: a(ui-sref='home'): i.fa.fa-home &nbsp; Home
         li: a(ui-sref='faq'): i.fa.fa-info &nbsp; Faq

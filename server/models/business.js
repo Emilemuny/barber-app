@@ -8,9 +8,9 @@ let Business;
 
 
 let businessSchema = mongoose.Schema({
-  name : {type: String, required: true},
-  address: {type: String, required: true},
-  phone: {type: String, required: true},
+  name : String,
+  address: String,
+  phone: String,
   email : {type: String, required: true},
   ownerName: String,
   yelpId: String,

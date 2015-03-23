@@ -1,4 +1,4 @@
-
+{{name}}
 
 #loginform
       #social.button(ng-click='authenticate("facebook")'): i.fa.fa-facebook
@@ -10,22 +10,21 @@
   #mainlogin
     #or Barber
     h1 Login to your portal
-    
+    .alert.alert-danger(ng-show='alertMessage')
+      span: strong Alert! 
+      span {{alertMessage}}
     a.au(ui-sref='login') Login 
     a.au(ui-sref='register') Register
-    form      
+    form(name='form')      
       .form-group
-        input(type='email', name='email', placeholder='email', required='', ng-model='business.email')
+        input(type='email', name='email', placeholder='Email', ng-model='business.email', novalidate, required)                  
       .form-group(ng-show='name === "Register"')  
-        input(type='password', name='password1', placeholder='password', required='', ng-model='business.password1')      
+        input(type='password', name='password1', placeholder='Password', ng-model='business.password1', novalidate, required)            
       .form-group(ng-show='name === "Register"')  
-        input(type='password', name='password2', placeholder='confirm your password', ng-model='business.password2')      
+        input(type='password', name='password2', placeholder='Confirm password', ng-model='business.password2', novalidate, required)      
       .form-group(ng-show='name === "Login"')
-        input(type='password', name='password', ng-model='business.password')  
-      .form-group(ng-show='name === "Register"')  
-        button(type='submit', ng-click='submit(business)') {{name}}
-          i.fa.fa-arrow-right
-      .form-group(ng-show='name === "Login"')  
+        input(type='password', name='password', placeholder='Password', ng-model='business.password', novalidate, required)  
+      .form-group 
         button(type='submit', ng-click='submit(business)') {{name}}
           i.fa.fa-arrow-right    
   

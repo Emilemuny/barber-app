@@ -6,9 +6,10 @@ angular.module('barber-book', ['ui.router', 'ngMessages', 'satellizer'])
 
 
     $stateProvider
-      .state('authenticate', {url:'/authenticate', templateUrl:'/views/general/authenticate.html', controller:'OauthCtrl'})
-      .state('login', {url: '/login', templateUrl: '/views/general/authenticate.html', controller: 'OauthCtrl'})
-      .state('register', {url: '/register', templateUrl: '/views/general/authenticate.html', controller: 'OauthCtrl'})
+      .state('authenticate', {url:'/authenticate', templateUrl:'/views/general/authenticate.html', controller:'bizOauthCtrl'})
+      .state('login', {url: '/login', templateUrl: '/views/general/authenticate.html', controller:'bizOauthCtrl'})
+      .state('register', {url: '/register', templateUrl: '/views/general/authenticate.html', controller:'bizOauthCtrl'})
+
       .state('home', {url:'/home', templateUrl:'/views/general/home_user.html', controller: 'HomeCtrl'})
       .state('faq', {url:'/faq', templateUrl:'/views/general/faq.html'})
       .state('contact', {url:'/contact', templateUrl:'/views/general/contact.html'});
@@ -28,10 +29,4 @@ angular.module('barber-book', ['ui.router', 'ngMessages', 'satellizer'])
           scopeDelimiter: '+',
           authorizationEndpoint: 'https://api.instagram.com/oauth/authorize'
         });
-  }])
-  .run(['$rootScope', '$window', '$auth', function($rootScope, $window, $auth){
-    if($auth.isAuthenticated()){
-     $rootScope.user = JSON.parse($window.localStorage.user);
-      // $rootScope.business = JSON.parse($window.localStorage.business);
-    }
   }]);

@@ -3,8 +3,8 @@
 module.exports = [
   {method: 'get', path: '/{param*}', config: require('../routes/general/static')},
 
-  {method: 'post', path: '/auth/register', config: require('../routes/business/register')},
-  {method: 'post', path: '/auth/login', config: require('../routes/business/login')},
+  {method: 'post', path: '/login', config: require('../routes/business/login')},
+  {method: 'post', path: '/register', config: require('../routes/business/register')},
   {method: 'delete', path: '/auth/logout', config: require('../routes/business/logout')},
 
   {method: 'get', path: '/auth/twitter', config: require('../routes/users/twitter')},
