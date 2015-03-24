@@ -8,21 +8,21 @@
           .row
             .col-sm-6.col-md-4
               .thumbnail
-                .caption(ng-show='result')
+                .caption(ng-show='result') Unregistered
                   h3 {{result.name}}
                   p Address: {{result.formatted_address}}
                   p Phone: {{result.formatted_phone_number}}                                    
-                  a.btn.btn-primary(href='#', role='button') Book
+                  a.btn.btn-primary(type='button', disabled='disabled') Book
                   a.btn.btn-default(href='#', role='button') More info.
-    
+                          
             .col-sm-4(ng-repeat= 'business in businesses')
               .thumbnail
-                .caption
+                .caption Register member
                   h3 {{business.name}}
                   p Address: {{business.address}}
                   p Phone: {{business.phone}}                                    
                   a.btn.btn-primary(href='#', role='button') Book
-                  a.btn.btn-default(href='#', role='button') More info.                   
+                  a.btn.btn-info(href='#', role='button') More info.                   
       
             
     
