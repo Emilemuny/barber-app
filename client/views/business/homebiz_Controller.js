@@ -3,12 +3,20 @@
 'use strict';
 
 angular.module('barber-book')
-  .controller('HomeBizCtrl', ['$rootScope', '$scope', '$state', function($rootScope, $scope, $state){
+  .controller('HomeBizCtrl', ['$rootScope', '$scope', '$state', 'Business', function($rootScope, $scope, $state, Business){
 
-// $state.name = $state.current.name;
-// if(name === 'update'){
-//   $scope.sStatus = true;
-// }
+
+    $scope.pinconf = function() {
+      console.log('IN PINCONF');
+      var phoneN = '+18572668102';
+      Business.confirmPIN($rootScope.business._id , {phone: phoneN});
+    };
+
+
+
+
+
+
 
 var map;
 var infoWindow;
@@ -65,7 +73,7 @@ function performSearch() {
 
 function callback(results, status) {
   if (status !== google.maps.places.PlacesServiceStatus.OK) {
-    alert(status);
+    alert('alert1', status);
     return;
   }
   for (var i = 0, result; result = results[i]; i++) {
@@ -85,7 +93,7 @@ function createMarker(place) {
   google.maps.event.addListener(marker, 'click', function() {
     service.getDetails(place, function(result, status) {
       if (status !== google.maps.places.PlacesServiceStatus.OK) {
-        alert(status);
+        alert('alert2', status);
         return;
       }
       console.log('Result Location**',result.address_components[2].long_name);

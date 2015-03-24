@@ -14,8 +14,7 @@ angular.module('barber-book', ['ui.router', 'ngMessages', 'satellizer'])
       .state('faq', {url:'/faq', templateUrl:'/views/general/faq.html'})
       .state('contact', {url:'/contact', templateUrl:'/views/general/contact.html'})
 
-      .state('homebiz',{url:'/business', templateUrl:'/views/business/homebiz.html', controller: 'HomeBizCtrl'})
-      .state('update', {url:'/business', templateUrl:'/views/business/homebiz.html', controller: 'HomeBizCtrl'});
+      .state('homebiz', {url:'/business', templateUrl:'/views/business/homebiz.html', controller: 'HomeBizCtrl'});
 
 
       $authProvider.github({clientId: '0f2f449e07affa7ca822'});

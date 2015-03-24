@@ -15,10 +15,14 @@ angular.module('barber-book')
         return $http.delete('/auth/logout');
       }
 
-      function update(businessId, business){
-        return $http.put(`/business/${businessId}`, business);
+      function confirmPIN(businessId, phone){
+        return $http.post(`/business/${businessId}/message`, phone);
       }
 
-      return {register:register, login:login, logout:logout, update:update};
+      function update(businessId, business){
+        return $http.post(`/business/${businessId}/update`, business);
+      }
+
+      return {register:register, login:login, logout:logout, confirmPIN:confirmPIN, update:update};
 
 }]);

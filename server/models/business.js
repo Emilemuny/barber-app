@@ -15,8 +15,8 @@ let businessSchema = mongoose.Schema({
   ownerName: String,
   yelpId: String,
   CreatedAt: {type: Date, default: Date.now, required: true},
-  password: {type: String, required: true}
-
+  password: {type: String, required: true},
+  pin: Number
 
 });
 

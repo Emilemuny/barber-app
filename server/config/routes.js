@@ -14,7 +14,6 @@ module.exports = [
   {method: 'post', path: '/auth/google', config: require('../routes/users/google')},
 
   {method: 'get', path: '/yelp', config: require('../routes/yelp/getreviews')},
-
-  {method: 'put', path: '/business/{businessId}',config: require('../routes/business/updateprofile')}
+  {method: 'post', path: '/business/{businessId}/message', config: require('../routes/business/updatePIN_text')}
 
 ];
