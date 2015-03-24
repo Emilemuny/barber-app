@@ -24,6 +24,10 @@ angular.module('barber-book')
         return $http.post(`/business/${businessId}/update`, business);
       }
 
-      return {register:register, login:login, logout:logout, confirmPIN:confirmPIN, update:update};
+      function findbiz(business){
+        return $http.get('/getbusiness', business);
+      }
+
+      return {register:register, login:login, logout:logout, confirmPIN:confirmPIN, update:update, findbiz:findbiz};
 
 }]);

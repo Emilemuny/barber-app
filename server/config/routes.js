@@ -15,6 +15,8 @@ module.exports = [
 
   {method: 'get', path: '/yelp', config: require('../routes/yelp/getreviews')},
   {method: 'post', path: '/business/{businessId}/message', config: require('../routes/business/updatePIN_text')},
-  {method: 'post', path: '/business/{businessId}/update', config: require('../routes/business/updateprofile')}
+  {method: 'post', path: '/business/{businessId}/update', config: require('../routes/business/updateprofile')},
+
+  {method: 'get', path: '/getbusiness', config: require('../routes/business/indexupdated')}
 
 ];

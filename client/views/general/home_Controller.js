@@ -3,12 +3,17 @@
 'use strict';
 
 angular.module('barber-book')
-  .controller('HomeCtrl', ['$rootScope', '$scope', '$state', function($rootScope, $scope, $state){
+  .controller('HomeCtrl', ['$rootScope', '$scope', '$state', 'Business', function($rootScope, $scope, $state, Business){
 
 
 var map;
 var infoWindow;
 var service;
+
+ Business.findbiz().then(function(response){
+   $scope.businesses = response.data.businesses;
+   console.log('response.data', response.data);
+ });
 
 function initialize() {
   if(navigator.geolocation){

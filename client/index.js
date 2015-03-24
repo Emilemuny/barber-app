@@ -36,8 +36,8 @@ angular.module('barber-book', ['ui.router', 'ngMessages', 'satellizer'])
   .run(['$rootScope', '$window', '$auth', function($rootScope, $window, $auth){
     if($auth.isAuthenticated()){
       $rootScope.user = JSON.parse($window.localStorage.user);
-
-    }
-
-  $rootScope.business = JSON.parse($window.localStorage.business);
+}
+    // }else{
+    //    $rootScope.business = JSON.parse($window.localStorage.business);
+    //  }
    }]);
