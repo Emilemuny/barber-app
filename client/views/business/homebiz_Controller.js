@@ -13,11 +13,6 @@ angular.module('barber-book')
     };
 
 
-
-
-
-
-
 var map;
 var infoWindow;
 var service;
