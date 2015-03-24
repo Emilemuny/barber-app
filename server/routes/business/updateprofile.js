@@ -1,20 +1,14 @@
 'use strict';
 
 let Business = require('../../models/business');
-let Joi = require('joi');
+
 
 module.exports = {
-    validate: {
-      params: {
-        businessId: Joi.string().required()
-      },
-      payload: {
-        name: Joi.string(),
-        address: Joi.string()
-      }
-    },
+    auth: false,
     handler: function(request,reply){
-      Business.findOneAndUpdate({_id:request.params.businessId}, request.payload, (err, business)=>{
+      Business.findOneAndUpdate({ _id:request.params.businessId}, request.payload, (err, business)=>{
+        if(err){reply().code(400);}
+
         reply(business);
       });
     }

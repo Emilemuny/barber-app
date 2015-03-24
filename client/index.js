@@ -39,5 +39,5 @@ angular.module('barber-book', ['ui.router', 'ngMessages', 'satellizer'])
 
     }
 
-    $rootScope.business = JSON.parse($window.localStorage.business);
+  $rootScope.business = JSON.parse($window.localStorage.business);
    }]);

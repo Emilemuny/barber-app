@@ -17,6 +17,7 @@ angular.module('barber-book')
 
       function confirmPIN(businessId, phone){
         return $http.post(`/business/${businessId}/message`, phone);
+
       }
 
       function update(businessId, business){
