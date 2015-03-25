@@ -21,7 +21,34 @@
                   h3 {{business.name}}
                   p Address: {{business.address}}
                   p Phone: {{business.phone}}                                    
-                  a.btn.btn-primary(href='#', role='button') Book
+                  a.btn.btn-primary(type='button', data-toggle='modal', data-target='#myModal') Book
+                  #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+                    .modal-dialog
+                      .modal-content
+                        .modal-header                        
+                          h4#myModalLabel.modal-title {{business.name}} Haircut booking 
+                        .modal-body
+                            form(name='appt')
+                               .input-append.date.form_datetime(data-date='2015-03-24T15:25:00Z')                                            
+                                 input(size='5', type='text', placeholder='Click here to choose date/time of your appointment', value='', readonly='')
+                                 span.add-on
+                                   i.icon-remove
+                                 span.add-on
+                                   i.icon-th
+                                script(type='text/javascript').
+                                  $(".form_datetime").datetimepicker({
+                                  format: "dd MM yyyy - HH:ii P",
+                                  showMeridian: true,
+                                  autoclose: true,
+                                  todayBtn: true
+                                  });
+                               textarea.form-control(placeholder='Feel free to let your barber know what haircut style you want',rows='3')                                                                           
+                               button.btn.btn-default(type='submit', ng-click='send()') Send
+                           i.fa.fa-arrow-right    
+                        .modal-footer
+                          
+                          a.btn.btn-default.btn-sm(type='button', data-dismiss='modal') Close
+                          //- button.btn.btn-primary(type='button') Save changes
                   a.btn.btn-info(href='#', role='button') More info.                   
       
             

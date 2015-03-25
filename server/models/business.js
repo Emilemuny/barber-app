@@ -16,7 +16,14 @@ let businessSchema = mongoose.Schema({
   yelpId: String,
   CreatedAt: {type: Date, default: Date.now, required: true},
   password: {type: String, required: true},
-  pin: Number
+  pin: Number,
+  appt: {
+    userId: {type: mongoose.Schema.ObjectId, ref: 'User', required: true},
+    apptDate: {type: Date, required: true},
+    msg: String,
+    createdAt: {type: Date, default: Date.now, required: true}
+  }
+
 
 });
 

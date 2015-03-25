@@ -17,6 +17,7 @@ angular.module('barber-book', ['ui.router', 'ngMessages', 'satellizer'])
       .state('homebiz', {url:'/business', templateUrl:'/views/business/homebiz.html', controller: 'HomeBizCtrl'});
 
 
+
       $authProvider.github({clientId: '0f2f449e07affa7ca822'});
       $authProvider.facebook({clientId: '1418892481739742'});
       $authProvider.google({clientId: '163158498926-liap9036t6hqercc1jj4k679eicgnn13.apps.googleusercontent.com'});
