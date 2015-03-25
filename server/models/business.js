@@ -18,10 +18,10 @@ let businessSchema = mongoose.Schema({
   password: {type: String, required: true},
   pin: Number,
   appt: {
-    userId: {type: mongoose.Schema.ObjectId, ref: 'User', required: true},
-    apptDate: {type: Date, required: true},
+    userId: {type: mongoose.Schema.ObjectId, ref: 'User'},
+    apptDate: Date,
     msg: String,
-    createdAt: {type: Date, default: Date.now, required: true}
+    createdAt: {type: Date, default: Date.now}
   }
 
 
