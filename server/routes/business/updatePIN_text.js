@@ -15,7 +15,7 @@ module.exports = {
 
      let pin = Math.floor(Math.random() * 1000);
 
-    
+
      console.log('PIN', pin);
      Txtmsg.send(request.payload.phone, pin, function(err, message){
       if(err){ console.log('ERROR IN ROUTE TXTMSG'); return reply(err).code(400);}
