@@ -1,0 +1,27 @@
+#exampleModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true' , ng-controller='CalCtr')
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='false') ×
+        h4#exampleModalLabel.modal-title {{business.name}}
+      .modal-body
+        form
+          .form-group
+            label.control-label(for='recipient-name') Please pick a date/time for your Appointment
+            .container
+              .row
+                .col-sm-6
+                  .form-group
+                    #datetimepicker5.input-group.date
+                      input.form-control(type='text' placeholder='Click here')
+                      span.input-group-addon
+                        span.glyphicon.glyphicon-calendar
+                
+                   
+          .form-group
+            label.control-label(for='message-text') Message:
+            textarea#message-text.form-control
+      .modal-footer
+        button.btn.btn-default(type='button', data-dismiss='modal') Close
+        button.btn.btn-primary(type='button') Send message
