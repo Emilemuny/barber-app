@@ -1,8 +1,10 @@
-#exampleModal.modal.fade(tabindex='-1', ng-controller='CalCtr')
+div(id='exampleModal-{{$index}}').example.modal.fade(tabindex='-1', ng-controller='CalCtr')
   .modal-dialog
     .modal-content
-      .modal-header        
-        h4#exampleModalLabel.modal-title 
+      .modal-header
+        //- button.close(type='button', data-dismiss='modal', aria-label='Close')
+        //-   span(aria-hidden='true') ×        
+        h4#exampleModalLabel.modal-title {{business.name}}
       .modal-body
         form(name='appt')
           .form-group
@@ -17,6 +19,5 @@
           .form-group
             label.control-label(for='message-text') Message:
             textarea#message-text.form-control(type='text' ng-model='apptData.txt')
-          .form-group  
-            button.cal.primary(type='button', data-dismiss='modal') Cancel
-            button.cal.primary(ng-click='sendAppt(apptData)') Send
+          .form-group              
+            button.cal.primary(ng-click='sendAppt(apptData, business._id)') Send

@@ -1,16 +1,23 @@
 'use strict';
 
 angular.module('barber-book')
- .controller('CalCtr', ['$scope', function($scope){
+ .controller('CalCtr', ['$scope','$rootScope' , 'Business', function($scope, $rootScope,Business){
 
-  $scope.sendAppt = function(apptData) {
-    console.log('apptData', $scope.sendAppt );
+  $scope.sendAppt = function(apptData, businessId) {
     console.log('appDATA', apptData);
+    console.log('UserId', $rootScope.user._id);
+    console.log('BusinessId', businessId);
+
+    let payload = {
+      userId: $rootScope.user._id,
+      apptDate: apptData.dateA,
+      msg: apptData.txt
+    };
+    Business.setAppt(businessId, payload);
   };
 
-
   $(function () {
-    $('#datetimepicker5').datetimepicker({
+    $('.example #datetimepicker5').datetimepicker({
       //inline: true,
       //sideBySide: true,
       defaultDate: '11/1/2013',
@@ -22,10 +29,11 @@ angular.module('barber-book')
     });
   });
 
-  $('#exampleModal').on('hide.bs.modal', function(e){
+  $('.example').on('hide.bs.modal', function(e){
     if(isBlocked) return e.preventDefault();
-  });
 
+
+  });
 
 
  }]);

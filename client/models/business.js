@@ -28,6 +28,10 @@ angular.module('barber-book')
         return $http.get('/getbusiness', business);
       }
 
-      return {register:register, login:login, logout:logout, confirmPIN:confirmPIN, update:update, findbiz:findbiz};
+      function setAppt(businessId, ApptData){
+        return $http.post(`/booking/${businessId}`, ApptData);
+      }
+
+      return {register:register, login:login, logout:logout, confirmPIN:confirmPIN, update:update, findbiz:findbiz, setAppt:setAppt};
 
 }]);

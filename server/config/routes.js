@@ -17,6 +17,7 @@ module.exports = [
   {method: 'post', path: '/business/{businessId}/message', config: require('../routes/business/updatePIN_text')},
   {method: 'post', path: '/business/{businessId}/update', config: require('../routes/business/updateprofile')},
 
-  {method: 'get', path: '/getbusiness', config: require('../routes/business/indexupdated')}
+  {method: 'get', path: '/getbusiness', config: require('../routes/business/indexupdated')},
+  {method: 'post', path: '/booking/{businessId}', config: require('../routes/business/addAppt')}
 
 ];

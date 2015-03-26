@@ -12,10 +12,9 @@ var service;
 
  Business.findbiz().then(function(response){
    $scope.businesses = response.data.businesses;
-
  });
 
- 
+
 
 function initialize() {
   if(navigator.geolocation){
