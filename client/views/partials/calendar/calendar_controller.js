@@ -29,11 +29,13 @@ angular.module('barber-book')
     });
   });
 
-  $('.example').on('hide.bs.modal', function(e){
-    if(isBlocked) return e.preventDefault();
+
+  $( '.example.modal form #message-text' ).click(function( event ) {
+        event.stopPropagation();
+
+      });
 
 
-  });
 
 
  }]);
