@@ -21,15 +21,19 @@
                   h3 {{business.name}}
                   p Address: {{business.address}}
                   p Phone: {{business.phone}}
-                  a.btn.btn-primary(type='button', data-toggle='modal', data-target='#exampleModal-{{$index}}', data-whatever='@fat') Book
+                  a.btn.btn-primary(type='button', data-toggle='modal', data-target='#exampleModal-{{$index}}') Book
                     include ../partials/calendar/calendar
-
                     .container-fluid
                       .row
                         .col-xs-12
                           div(ui-view)
                           
-                  a.btn.btn-info(href='#', role='button') More info. 
+                  a.btn.btn-info(type='button', data-toggle='modal', data-target='#MexampleModal-{{$index}}') More info. 
+                    include ../partials/calendar/moreinfo
+                    .container-fluid
+                      .row
+                        .col-xs-12
+                          div(ui-view)
       .row
         .col-lg-8.col-md-8
           h3 Book your next haircut appointment right here  

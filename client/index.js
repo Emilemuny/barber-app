@@ -39,8 +39,15 @@ angular.module('barber-book', ['ui.router', 'ngMessages', 'satellizer'])
 
       if($window.localStorage.user){
         $rootScope.user = JSON.parse($window.localStorage.user);
-      }else{
-        $rootScope.business = JSON.parse($window.localStorage.business);
       }
     }
+
+    function init(){
+      if($window.localStorage.business){
+        $rootScope.business= JSON.parse($window.localStorage.business);
+      }
+    }
+    
+    init();
+
    }]);

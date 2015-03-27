@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('barber-book')
- .controller('CalCtr', ['$scope','$rootScope' , 'Business', function($scope, $rootScope,Business){
+ .controller('CalCtrl', ['$scope','$rootScope' , 'Business', function($scope, $rootScope,Business){
 
   $scope.sendAppt = function(apptData, businessId) {
     console.log('appDATA', apptData);
@@ -29,13 +29,12 @@ angular.module('barber-book')
     });
   });
 
-
   $( '.example.modal form #message-text' ).click(function( event ) {
         event.stopPropagation();
-
       });
 
-
-
+  $( '.example.modal form #dateinput' ).click(function( event ) {
+        event.stopPropagation();
+      });
 
  }]);

@@ -8,6 +8,18 @@
           .row
             .col-sm-6.col-md-4
               .thumbnail
+                .caption(ng-if='!result')
+                  h4 List your business on barber-book.
+                  h1 Follow these simple steps to get started:
+                  ul
+                    li Find your business on the map,
+                    li Click on it to show on this page,
+                    li Verify that it is the correct one,
+                    li Choose Register your business!
+                    li Check your phone for the confirmation PIN text message,
+                    li Enter it in the box shown on the page and submit
+                    li Voila, you're registered, now your customers will be able to book their next appointments straight on barber-book.
+                    
                 .caption(ng-show='result', ng-init="show=0")
                   h3 Business name: {{result.name}}
                   p Address: {{result.formatted_address}}

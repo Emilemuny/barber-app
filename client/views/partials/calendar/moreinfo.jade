@@ -1,0 +1,17 @@
+div(id='MexampleModal-{{$index}}').example.modal.fade(tabindex='-1', ng-controller='MoreCtrl')
+  
+  .modal-dialog
+    .modal-content
+      .modal-header
+         | {{business.name}}
+        h4#myModalLabel.modal-title  Hello {{business.name}}
+      .modal-body
+        | Hello Contents to GO HERE
+      .modal-footer
+        button.btn.btn-default(type='button', data-dismiss='modal') Close
+        button.btn.btn-primary(type='button') Save changes
+
+
+
+        
+    
