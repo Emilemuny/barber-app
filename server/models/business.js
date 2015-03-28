@@ -17,13 +17,14 @@ let businessSchema = mongoose.Schema({
   CreatedAt: {type: Date, default: Date.now, required: true},
   password: {type: String, required: true},
   pin: Number,
-  appt: {
+  appt: [
+    {
     userId: {type: mongoose.Schema.ObjectId, ref: 'User'},
     apptDate: Date,
     msg: String,
     createdAt: {type: Date, default: Date.now}
-  }
-
+    }
+  ]
 
 });
 

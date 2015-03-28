@@ -6,11 +6,15 @@ angular.module('barber-book')
   .controller('HomeBizCtrl', ['$rootScope', '$scope', '$state', 'Business', function($rootScope, $scope, $state, Business){
 
 
-    $scope.pinconf = function(response) {
+
+    $scope.pinconf = function() {
       console.log('IN PINCONF');
       var phoneN = '+18572668102';
-      Business.confirmPIN($rootScope.business._id , {phone: phoneN});
-      console.log('RESPONSE', response);
+      Business.confirmPIN($rootScope.business._id , {phone: phoneN}).then(function(response){
+        $scope.pindata = response.data;
+        console.log('RESPONSE',response.data.pin);
+      });
+
     };
 
     $scope.update = function(){

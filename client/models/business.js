@@ -32,6 +32,10 @@ angular.module('barber-book')
         return $http.post(`/booking/${businessId}`, ApptData);
       }
 
-      return {register:register, login:login, logout:logout, confirmPIN:confirmPIN, update:update, findbiz:findbiz, setAppt:setAppt};
+      function getAppt(businessId, appt){
+        return $http.get(`/business/${businessId}/listappt`, appt);
+      }
+
+      return {register:register, login:login, logout:logout, confirmPIN:confirmPIN, update:update, findbiz:findbiz, setAppt:setAppt, getAppt:getAppt};
 
 }]);

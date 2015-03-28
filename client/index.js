@@ -14,7 +14,9 @@ angular.module('barber-book', ['ui.router', 'ngMessages', 'satellizer'])
       .state('faq', {url:'/faq', templateUrl:'/views/general/faq.html'})
       .state('contact', {url:'/contact', templateUrl:'/views/general/contact.html'})
 
-      .state('homebiz', {url:'/business', templateUrl:'/views/business/homebiz.html', controller: 'HomeBizCtrl'});
+      .state('homebiz', {url:'/business', templateUrl:'/views/business/homebiz.html', controller: 'HomeBizCtrl'})
+      .state('appts', {url:'/business/reservations', templateUrl:'/views/business/appt.html', controller:'listapptCtrl'});
+
 
 
 
@@ -47,7 +49,7 @@ angular.module('barber-book', ['ui.router', 'ngMessages', 'satellizer'])
         $rootScope.business= JSON.parse($window.localStorage.business);
       }
     }
-    
+
     init();
 
    }]);
