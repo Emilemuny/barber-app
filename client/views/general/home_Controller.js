@@ -14,8 +14,6 @@ var service;
    $scope.businesses = response.data.businesses;
  });
 
-
-
 function initialize() {
   if(navigator.geolocation){
     navigator.geolocation.getCurrentPosition(success);

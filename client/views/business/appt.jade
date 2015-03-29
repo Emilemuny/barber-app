@@ -1,15 +1,16 @@
 table.table.table-striped
+  h1(ng-hide='bizappts') You have no reserved appointments!   
   thead
-        tr
-          th(colspan='4') Reservations
-      tbody
-        th No.
-        th Customer name
-        th Appt. date/time
-        th Message
-        tr
-          td 1
-          td Emile Munyangabe             
-          td 03/30/2015 10:05 am
-          td Hello i need this type of haircut. thanks
-  
+    tr
+      th No.
+      th Customer
+      th Appt. Date
+      th Message
+  tbody
+    tr(ng-repeat='bizappt in bizappts')    
+      td {{$index + 1}}
+      td {{bizappt.userId}}
+      td {{bizappt.apptDate}}
+      td {{bizappt.msg}}
+
+        

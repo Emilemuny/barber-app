@@ -9,9 +9,7 @@ module.exports = {
     Business.findById(request.params.businessId, function(err, businesses){
       if(err){ reply().code(400);}
 
-
-      console.log('Error', err);
-      console.log('Appt', businesses);
+console.log('datatofrontend***', businesses);
       reply(businesses);
     });
   }

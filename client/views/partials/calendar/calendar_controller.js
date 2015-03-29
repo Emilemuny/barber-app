@@ -9,10 +9,11 @@ angular.module('barber-book')
     console.log('BusinessId', businessId);
 
     let payload = {
-      userId: $rootScope.user._id,
+      userName: $rootScope.user.displayName,
       apptDate: apptData.dateA,
       msg: apptData.txt
     };
+    console.log('Payload to backend', payload);
     Business.setAppt(businessId, payload);
   };
 

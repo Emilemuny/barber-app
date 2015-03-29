@@ -17,6 +17,8 @@ angular.module('barber-book')
 
     };
 
+
+
     $scope.update = function(){
       let payload = {                         //add the if PIN is correct before updating
         name: $scope.result.name,
@@ -24,6 +26,9 @@ angular.module('barber-book')
         phone: $scope.result.formatted_phone_number,
         yelpId: $scope.result.id
       };
+
+    console.log('scope.pin', $scope.business.pin);
+
       Business.update($rootScope.business._id, payload);
     };
 
@@ -114,7 +119,7 @@ function createMarker(place) {
      //adding result name in the scope for now..
      $scope.result = result;
 
-    console.log('Result Biz Name**',result);
+
       infoWindow.setContent(result.name);
       infoWindow.open(map, marker);
     });

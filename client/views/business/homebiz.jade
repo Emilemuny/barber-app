@@ -6,31 +6,24 @@
             #map_canvas
           .col-md-6 
           .row
-            .col-sm-6.col-md-4
+            .col-sm-6.col-md-6
               .thumbnail
                 .caption(ng-if='!result')
                   h2 List your business on barber-book.
                   h1 Follow these simple steps to get started:
                   ul
-                    li Find your business on the map,
-                    li Click on it to show on this page,
-                    li Verify that it is the correct one,
-                    li Choose Register your business!
-                    li Check your phone for the confirmation PIN text message,
-                    li Enter it in the box shown on the page and submit
-                    li Voila, you're registered, now your customers will be able to book their next appointments straight on barber-book.
-                    
-                .caption(ng-show='result', ng-init="show=0")
+                     i.fa.fa-hand-o-left   Find your barbershop on the map,
+                     i.fa.fa-plus-circle   Click Register to receive a verification PIN 
+                     i.fa.fa-mobile   Check your phone & enter the PIN received
+                     i.fa.fa-check-circle-o   Voila, your barbershop is registered.
+                .caption(ng-show='result')
                   h3 Business name: {{result.name}}
                   p Address: {{result.formatted_address}}
                   p Phone: {{result.formatted_phone_number}} 
                   p Email: {{business.email}}             
-                  a.btn.btn-lg.btn-primary(ng-click="pinconf()" ng-show="show=1")
-                    i.fa.fa-power-off
-                    | Register your business! 
-                  span(ng-show="show == 1")  
-                    label(for='pin') Enter the pin received via text message below to successfully register!!  
-                    input.pin(type='number', name='pin', placeholder='Enter your confirmation PIN', ng-model='business.pin', required) 
+                  a.btn.btn-sm.btn-primary(ng-click="pinconf()" ng-show="show=1") Register your business
+                  span  
+                    input.pin(type='number' name='pin' id='pin' placeholder='Enter your confirmation PIN' ng-model='business.pin', value='pin' required) 
                     button.pin(type='submit', ng-click='update(business)') Submit
                       i.fa.fa-arrow-right  
                       

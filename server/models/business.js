@@ -19,7 +19,8 @@ let businessSchema = mongoose.Schema({
   pin: Number,
   appt: [
     {
-    userId: {type: mongoose.Schema.ObjectId, ref: 'User'},
+    userId: {type: mongoose.Schema.ObjectId, required: true},
+    userName: String,
     apptDate: Date,
     msg: String,
     createdAt: {type: Date, default: Date.now}

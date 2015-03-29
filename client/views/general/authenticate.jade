@@ -1,4 +1,6 @@
 #loginform
+      h2 Login with your social network credentials! 
+      
       #social.button(ng-click='authenticate("facebook")'): i.fa.fa-facebook
       #social.button(ng-click='authenticate("twitter")'):  i.fa.fa-twitter
       #social.button(ng-click='authenticate("google")'): i.fa.fa-google       
@@ -12,8 +14,9 @@
       span: strong Alert! 
       span {{alertMessage}}
     a.au(ui-sref='login') Login 
+      br
     a.au(ui-sref='register') Register
-    form(name='form')      
+    form(name='form', ng-hide='name === "Authenticate"')      
       .form-group
         input(type='email', name='email', placeholder='Email', ng-model='business.email', novalidate, required)                  
       .form-group(ng-show='name === "Register"')  
