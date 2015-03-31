@@ -1,6 +1,7 @@
 'use strict';
 
 let Business = require('../../models/business');
+let Txtmsg = require('../../models/sendTxt');
 
 module.exports = {
   handler: function(request, reply){
@@ -12,6 +13,10 @@ module.exports = {
       business.appt.userName = request.payload.userName;
       business.appt.apptDate = request.payload.apptDate;
       business.appt.msg = request.payload.msg;
+
+      Txtmsg.send(business.phone, request.payload.msg, function(err, message){
+        if(err){ console.log('ERROR IN ROUTE TXTMSG'); return reply(err).code(400);}
+      });
       business.save(function(err){
       console.log('ERRORifAny***',err);
         if(err) {return reply(err);}
@@ -19,14 +24,3 @@ module.exports = {
     });
   }
 };
-
-
-//
-// let payload = {
-//   userName: $rootScope.user.displayName,
-//   apptDate: apptData.dateA,
-//   msg: apptData.txt
-// };
-// console.log('Payload to backend', payload);
-// Business.setAppt(businessId, payload);
-// };
