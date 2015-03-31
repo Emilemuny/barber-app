@@ -10,6 +10,6 @@ nav.navbar.navbar-default(ng-controller='NavCtrl')
     #navbar.collapse.navbar-collapse      
       ul.nav.navbar-nav.navbar-right(ng-show="user || business" )
         li: a(ref='#', ng-click='logout()'): i.fa.fa-signin &nbsp; {{business.email || user.displayName}}
-      ul.nav.navbar-nav.navbar-right(ng-hide="!user || !business")
+      ul.nav.navbar-nav.navbar-right
         li: a(ui-sref='home'): i.fa.fa-home &nbsp; Home
-        li: a(ui-sref='faq'): i.fa.fa-info &nbsp; Faq
+        li: a(ui-sref='faq'): i.fa.fa-info &nbsp; Tech used

@@ -34,7 +34,7 @@ angular.module('barber-book')
         event.stopPropagation();
       });
 
-  $( '.example.modal form #dateinput' ).click(function( event ) {
+  $( '.exampleModal form #dateinput' ).click(function( event ) {
         event.stopPropagation();
       });
 
