@@ -1,6 +1,15 @@
 .container-fluid.authe
   .row
     .col-md-6  
+      .row
+         pre  
+           strong Welcome to Barber book, where you can see/book your haircut appointment.
+    
+           br
+           br             
+           strong.log Login with your social network.
+          
+      .row  
         #social.button(ng-click='authenticate("facebook")'): i.fa.fa-facebook
         #social.button(ng-click='authenticate("twitter")'):  i.fa.fa-twitter
         #social.button(ng-click='authenticate("google")'): i.fa.fa-google       

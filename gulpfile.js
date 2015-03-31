@@ -14,7 +14,7 @@ var paths = {
   lesssrc:  ['./client/**/*.less'],
   lintsrc:  ['./client/**/*.js', './server/**/*.js', './test/**/*.js'],
   babelsrc: ['./client/**/*.js'],
-  mediasrc: ['./client/**/*.mp3', './client/**/*.jpg', './client/**/*.wav', './client/**/*.png', './client/**/*.ico'],
+  mediasrc: ['./client/**/*.mp3', './client/**/*.jpg', './client/**/*.wav', './client/**/*.png', './client/**/*.ico', './client/**/*.gif'],
   destination: './public'
 };
 
