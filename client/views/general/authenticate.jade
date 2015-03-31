@@ -1,6 +1,6 @@
 .container-fluid.authe
   .row
-    .col-md-6  
+    .col-md-12  
       .row
          pre  
            strong Welcome to Barber book, where you can see/book your haircut appointment.
@@ -9,33 +9,34 @@
            br             
            strong.log Login with your social network.
           
-      .row  
-        #social.button(ng-click='authenticate("facebook")'): i.fa.fa-facebook
-        #social.button(ng-click='authenticate("twitter")'):  i.fa.fa-twitter
-        #social.button(ng-click='authenticate("google")'): i.fa.fa-google       
-        #social.button(ng-click='authenticate("github")'): i.fa.fa-github
-        #social.button(ng-click='authenticate("instagram")'): i.fa.fa-instagram
-    .col-sm-4    
-        #mainlogin
-          #or Barber
-          h1 Business Login
-          .alert.alert-danger(ng-show='alertMessage')
-            span: strong Alert! 
-            span {{alertMessage}}
-          a.au(ui-sref='login'): i.fa.fa-sign-in Login 
-          br
-          a.au(ui-sref='register'): i.fa.fa-star-o Register
-          form(name='form', ng-hide='name === "Authenticate"')      
-            .form-group
-              input(type='email', name='email', placeholder='Email', ng-model='business.email', novalidate, required)                  
-            .form-group(ng-show='name === "Register"')  
-              input(type='password', name='password1', placeholder='Password', ng-model='business.password1', novalidate, required)            
-            .form-group(ng-show='name === "Register"')  
-              input(type='password', name='password2', placeholder='Confirm password', ng-model='business.password2', novalidate, required)      
-            .form-group(ng-show='name === "Login"')
-              input(type='password', name='password', placeholder='Password', ng-model='business.password', novalidate, required)  
-            .form-group 
-              button(type='submit', ng-click='submit(business)') {{name}}
-                i.fa.fa-arrow-right    
-    
+          .row  
+            #social.button(ng-click='authenticate("facebook")'): i.fa.fa-facebook
+            #social.button(ng-click='authenticate("twitter")'):  i.fa.fa-twitter
+            #social.button(ng-click='authenticate("google")'): i.fa.fa-google       
+            #social.button(ng-click='authenticate("github")'): i.fa.fa-github
+            #social.button(ng-click='authenticate("instagram")'): i.fa.fa-instagram
+    .col-md-4    
+          .row
+            #mainlogin
+              #or For Business
+              h1 Business Login
+              .alert.alert-danger(ng-show='alertMessage')
+                span: strong Alert! 
+                span {{alertMessage}}
+              a.au(ui-sref='login'): i.fa.fa-sign-in Login 
+              br
+              a.au(ui-sref='register'): i.fa.fa-star-o Register
+              form(name='form', ng-hide='name === "Authenticate"')      
+                .form-group
+                  input(type='email', name='email', placeholder='Email', ng-model='business.email', novalidate, required)                  
+                .form-group(ng-show='name === "Register"')  
+                  input(type='password', name='password1', placeholder='Password', ng-model='business.password1', novalidate, required)            
+                .form-group(ng-show='name === "Register"')  
+                  input(type='password', name='password2', placeholder='Confirm password', ng-model='business.password2', novalidate, required)      
+                .form-group(ng-show='name === "Login"')
+                  input(type='password', name='password', placeholder='Password', ng-model='business.password', novalidate, required)  
+                .form-group 
+                  button(type='submit', ng-click='submit(business)') {{name}}
+                    i.fa.fa-arrow-right    
+        
     
