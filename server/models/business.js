@@ -1,3 +1,5 @@
+/* jshint camelcase:false */
+
 'use strict';
 
 let mongoose = require('mongoose');
@@ -13,7 +15,7 @@ let businessSchema = mongoose.Schema({
   phone: String,
   email : {type: String, required: true},
   ownerName: String,
-  yelpId: String,
+  place_id: String,
   CreatedAt: {type: Date, default: Date.now, required: true},
   password: {type: String, required: true},
   pin: Number,

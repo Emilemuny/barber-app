@@ -1,3 +1,5 @@
+/* jshint camelcase: false */
+
 'use strict';
 
 angular.module('barber-book')
@@ -36,6 +38,11 @@ angular.module('barber-book')
         return $http.get(`/business/${businessId}/listappt`, appt);
       }
 
-      return {register:register, login:login, logout:logout, confirmPIN:confirmPIN, update:update, findbiz:findbiz, setAppt:setAppt, getAppt:getAppt};
+      function getdetails(place_id){
+        console.log('placeid',place_id);
+        return $http.get(`/business/getdetails/${place_id}`);
+      }
+
+      return {register:register, login:login, logout:logout, confirmPIN:confirmPIN, update:update, findbiz:findbiz, setAppt:setAppt, getAppt:getAppt, getdetails:getdetails};
 
 }]);

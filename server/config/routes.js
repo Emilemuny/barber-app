@@ -19,7 +19,6 @@ module.exports = [
   {method: 'get', path: '/business/{businessId}/listappt', config: require('../routes/business/getappt')},
 
   {method: 'get', path: '/getbusiness', config: require('../routes/business/indexupdated')},
-  {method: 'post', path: '/booking/{businessId}', config: require('../routes/business/addAppt')}
-
-
+  {method: 'post', path: '/booking/{businessId}', config: require('../routes/business/addAppt')},
+  {method: 'get', path: '/business/getdetails/{place_id}', config: require('../routes/business/placedetails')}
 ];

@@ -21,10 +21,10 @@
                   p Address: {{result.formatted_address}}
                   p Phone: {{result.formatted_phone_number}} 
                   p Email: {{business.email}}             
-                  a.btn.btn-sm.btn-primary(ng-click="pinconf()" ng-show="show=1") Register your business
+                  a.btn.btn-sm.btn-primary(ng-click="pinconf()") Claim your business
                   span  
-                    input.pin(type='number' name='pin' id='pin' placeholder='Enter your confirmation PIN' ng-model='business.pin', value='pin' required) 
-                    button.pin(type='submit', ng-click='update(business)') Submit
+                    input.pin(type='number' name='pin' id='pin' placeholder='Enter your confirmation PIN' ng-model='business.pin',required) 
+                    button#pinb(type='submit', ng-click='update(business)') Submit
                       i.fa.fa-arrow-right  
                       
     

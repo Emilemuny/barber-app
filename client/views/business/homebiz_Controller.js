@@ -11,25 +11,30 @@ angular.module('barber-book')
       console.log('IN PINCONF');
       var phoneN = '+18572668102';
       Business.confirmPIN($rootScope.business._id , {phone: phoneN}).then(function(response){
-        $scope.pindata = response.data;
+        $scope.pindata = response.data.pin;
         console.log('RESPONSE',response.data.pin);
+        console.log('RESPONSE',$scope.pindata);
+
       });
 
     };
 
-
-
     $scope.update = function(){
-      let payload = {                         //add the if PIN is correct before updating
-        name: $scope.result.name,
-        address: $scope.result.formatted_address,
-        phone: $scope.result.formatted_phone_number,
-        yelpId: $scope.result.id
-      };
+      let pinentered = document.getElementById('pin').value;
+      console.log('pinentered', pinentered);
 
-    console.log('scope.pin', $scope.business.pin);
 
-      Business.update($rootScope.business._id, payload);
+        let payload = {                         //add the if PIN is correct before updating
+          name: $scope.result.name,
+          address: $scope.result.formatted_address,
+          phone: $scope.result.formatted_phone_number,
+          place_id: $scope.result.place_id
+        };
+        console.log('scope.result', $scope.result);
+        console.log('scope.pin', $scope.business.pin);
+        console.log('scope.result', $scope.result);
+        Business.update($rootScope.business._id, payload);
+
     };
 
 var map;

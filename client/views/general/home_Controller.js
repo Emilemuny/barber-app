@@ -3,7 +3,7 @@
 'use strict';
 
 angular.module('barber-book')
-  .controller('HomeCtrl', ['$rootScope', '$scope', '$state', 'Business', function($rootScope, $scope, $state, Business){
+  .controller('HomeCtrl', ['$rootScope', '$scope', '$state', '$http', 'Business', function($rootScope, $scope, $state, $http, Business){
 
 
 var map;
@@ -91,18 +91,27 @@ function createMarker(place) {
       console.log('Result Location**',result.address_components[2].long_name);
       var LoCation = result.address_components[2].long_name;
 
-    angular.element('[ng-app]').injector().get('Yelp').review(result.name, LoCation);
+    // angular.element('[ng-app]').injector().get('Yelp').review(result.name, LoCation);
   //  console.log('Result LONGNAME', result.address_components);
 
      //adding result name in the scope for now..
-     $scope.result = result;
-
+    //  $scope.result = result;
+    //  $scope.reviews = result.reviews;
     console.log('Result Biz Name**',result);
       infoWindow.setContent(result.name);
       infoWindow.open(map, marker);
     });
   });
 }
+
+$scope.moreinfo = function(business) {
+   let place_id = business.place_id;
+   console.log('placeid', place_id);
+   Business.getdetails(place_id).then(function(response){
+    console.log('Response******', response);
+     $scope.detailsr = response.data;
+   });
+};
 
 google.maps.event.addDomListener(window, 'load', initialize);
 

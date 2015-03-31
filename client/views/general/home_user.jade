@@ -28,7 +28,8 @@
                         .col-xs-12
                           div(ui-view)
                           
-                  a.btn.btn-info(type='button', data-toggle='modal', data-target='#MexampleModal-{{$index}}') More info. 
+                  
+                  a.btn.btn-info(type='button', id='moreinfoD' data-toggle='modal', data-target='#MexampleModal-{{$index}}', ng-click='moreinfo(business)') More info. 
                     include ../partials/calendar/moreinfo
                     .container-fluid
                       .row
