@@ -34,7 +34,7 @@ angular.module('barber-book')
         event.stopPropagation();
       });
 
-  $( '.example.modal form #dateinput.form-control' ).click(function( event ) {
+  $( '.example.modal form #datetimepicker5.input-group.date' ).click(function( event ) {
         event.stopPropagation();
       });
 
