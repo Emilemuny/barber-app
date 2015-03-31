@@ -15,7 +15,8 @@ angular.module('barber-book', ['ui.router', 'ngMessages', 'satellizer'])
       .state('contact', {url:'/contact', templateUrl:'/views/general/contact.html'})
 
       .state('homebiz', {url:'/business', templateUrl:'/views/business/homebiz.html', controller: 'HomeBizCtrl'})
-      .state('appts', {url:'/business/reservations', templateUrl:'/views/business/appt.html', controller:'listapptCtrl'});
+      .state('appts', {url:'/business/reservations', templateUrl:'/views/business/appt.html', controller:'listapptCtrl'})
+      .state('moreinfo', {url:'/details', templateUrl: '/views/partials/calendar/moreinfo.html', controller: 'HomeCtrl'});
 
 
 

@@ -1,13 +1,9 @@
 /* jshint camelcase:false */
 
 'use strict';
-
 let Request = require('request');
-
 module.exports = {
-
   auth: false,
-
   handler: function(request, reply){
     console.log('HERE HERE****');
     console.log('paramsData', request.params.place_id);
@@ -18,7 +14,5 @@ module.exports = {
       console.log('ResponseBody', body);
       reply(body);
     });
-
   }
-
 };

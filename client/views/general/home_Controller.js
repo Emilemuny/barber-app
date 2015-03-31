@@ -91,11 +91,10 @@ function createMarker(place) {
       console.log('Result Location**',result.address_components[2].long_name);
       var LoCation = result.address_components[2].long_name;
 
-    // angular.element('[ng-app]').injector().get('Yelp').review(result.name, LoCation);
-  //  console.log('Result LONGNAME', result.address_components);
+    angular.element('[ng-app]').injector().get('Yelp').review(result.name, LoCation);
+   console.log('Result LONGNAME', result.address_components);
 
-     //adding result name in the scope for now..
-    //  $scope.result = result;
+     $scope.result = result;
     //  $scope.reviews = result.reviews;
     console.log('Result Biz Name**',result);
       infoWindow.setContent(result.name);
@@ -108,9 +107,14 @@ $scope.moreinfo = function(business) {
    let place_id = business.place_id;
    console.log('placeid', place_id);
    Business.getdetails(place_id).then(function(response){
-    console.log('Response******', response);
-     $scope.detailsr = response.data;
-   });
+    console.log('Response******', response.data.result);
+    console.log('Reviews******', response.data.result.reviews[0].text);
+
+     $scope.reviews = response.data.result.reviews;
+     $scope.openinghrs = response.data.result.opening_hours;
+     $scope.rating = response.data.result.rating;
+
+   }).state('moreinfo');
 };
 
 google.maps.event.addDomListener(window, 'load', initialize);
