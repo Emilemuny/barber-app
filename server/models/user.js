@@ -29,7 +29,7 @@ userSchema.statics.preTwitter = function(cb){
   let requestTokenOauth = {
     consumer_key: process.env.TWITTER_CONSUMER_KEY,
     consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-    callback: 'http://localhost:3333',
+    callback: 'https://barber-book.herokuapp.com/#/',
   };
 
     Request.post({url: requestTokenUrl, oauth:requestTokenOauth}, (err, response, body)=>{
@@ -98,7 +98,7 @@ userSchema.statics.instagram = function(payload, cb){
   let params = {
     code: payload.code,
     client_id: payload.clientId,
-    redirect_uri: 'http://localhost:3333',
+    redirect_uri: 'https://barber-book.herokuapp.com/#',
     client_secret: process.env.INSTAGRAM_SECRET,
     grant_type: 'authorization_code'
   };
