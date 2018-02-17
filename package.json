@@ -36,10 +36,10 @@
     "bcrypt": "^0.8.1",
     "cron": "^1.0.9",
     "good": "^5.1.2",
-    "good-console": "^4.1.0",
-    "hapi": "^8.4.0",
+    "good-console": "^6.1.2",
+    "hapi": "^11.0.4",
     "hapi-auth-cookie": "^2.0.0",
-    "hapi-auth-jwt": "^2.1.0",
+    "hapi-auth-jwt": "^4.0.0",
     "joi": "^6.0.8",
     "jwt-simple": "^0.2.0",
     "lodash": "^3.5.0",
@@ -47,7 +47,7 @@
     "mongoose": "^3.8.25",
     "random-js": "^1.0.4",
     "request": "^2.53.0",
-    "twilio": "^1.11.1",
+    "twilio": "^3.9.0",
     "yelp": "^0.1.1"
   },
   "devDependencies": {
