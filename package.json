@@ -39,7 +39,7 @@
     "good-console": "^4.1.0",
     "hapi": "^8.4.0",
     "hapi-auth-cookie": "^2.0.0",
-    "hapi-auth-jwt": "^2.1.0",
+    "hapi-auth-jwt": "^4.0.0",
     "joi": "^6.0.8",
     "jwt-simple": "^0.2.0",
     "lodash": "^3.5.0",
